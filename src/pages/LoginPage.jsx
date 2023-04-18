@@ -12,6 +12,7 @@ function LoginPage() {
         const user = userCredential.user;
         // ...
         console.log('user ===', user);
+        // ivygdyti conteksto funckija login
       })
       .catch((error) => {
         const errorCode = error.code;

@@ -15,6 +15,8 @@ function AuthProvider({ children }) {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
+  function login(user) {}
+
   const authCtx = {
     user,
     isLoading,
