@@ -5,21 +5,27 @@ const AuthContext = createContext({
   isLoading: false,
   login() {},
   logout() {},
-  register() {},
+  isLoggedIn: false,
 });
 
 // pervadinti AuthContext
 AuthContext.displayName = 'Autentifikacija';
 
 function AuthProvider({ children }) {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  function login(user) {}
+  const isLoggedIn = !!user;
+
+  function login(newUser) {
+    setUser(newUser);
+  }
 
   const authCtx = {
     user,
     isLoading,
+    login,
+    isLoggedIn,
   };
   return (
     <AuthContext.Provider value={authCtx}>{children}</AuthContext.Provider>

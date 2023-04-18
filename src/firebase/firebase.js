@@ -3,7 +3,9 @@
 import { initializeApp } from 'firebase/app';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-import { getAuth } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -22,3 +24,9 @@ const app = initializeApp(firebaseConfig);
 // exportuoti auth constanta https://firebase.google.com/docs/auth/web/start
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
+
+// Initialize Cloud Firestore and get a reference to the service
+// https://firebase.google.com/docs/firestore/quickstart#web-version-9
+export const db = getFirestore(app);
+
+export const googleProvider = new GoogleAuthProvider();
