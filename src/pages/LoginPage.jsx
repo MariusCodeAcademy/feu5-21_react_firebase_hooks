@@ -12,7 +12,9 @@ function LoginPage() {
     useSignInWithEmailAndPassword(auth);
 
   function loginWithHooks({ email, password }) {
-    const rez = signInWithEmailAndPassword(email, password);
+    const rez = signInWithEmailAndPassword(email, password).then(() => {
+      toast.success('Login success');
+    });
     // console.log('rez ===', rez);
     // toast.promise(rez, {
     //   loading: 'Loading',
