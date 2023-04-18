@@ -13,7 +13,7 @@ function LoginPage() {
 
   function loginWithHooks({ email, password }) {
     const rez = signInWithEmailAndPassword(email, password);
-    console.log('rez ===', rez);
+    // console.log('rez ===', rez);
     // toast.promise(rez, {
     //   loading: 'Loading',
     //   success: 'Login success',
@@ -21,7 +21,7 @@ function LoginPage() {
     // });
   }
 
-  console.log('error ===', error?.message);
+  // console.log('error ===', error?.message);
 
   // function loginFire({ email, password }) {
   //   // login with fire base
