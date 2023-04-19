@@ -8,11 +8,12 @@ import SinglePost from '../components/posts/SinglePost';
 function SinglePostPage() {
   // gauti id to post kuriame esam
   const { postUid } = useParams();
-  const docRef = doc(db, 'posts', postUid);
+  const docRef = doc(db, 'hookPosts', postUid);
   const [value, loading, error] = useDocument(docRef);
   // parsiusti posta // https://github.com/CSFrequency/react-firebase-hooks/tree/v4.0.2/firestore#usedocument
   console.log('value.data() ===', value?.data());
   const thisPostObj = value?.data();
+  console.log('error ===', error);
   return (
     <div className="container">
       <Loader show={loading} />
