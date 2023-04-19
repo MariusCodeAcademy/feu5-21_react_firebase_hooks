@@ -28,6 +28,7 @@ function PostsPage() {
       <h1>Post page</h1>
       <p>This is ProfilePage</p>
       <Loader show={loading} />
+      <button className="btn btn-dark">order by date: asc</button>
       <button
         className="btn btn-outline-dark btn-sm"
         onClick={() => setFilerVal('all')}
