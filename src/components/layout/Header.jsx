@@ -20,6 +20,12 @@ function Header() {
             <>
               <NavLink
                 className="text-decoration-none text-white px-2"
+                to={'/posts'}
+              >
+                Posts
+              </NavLink>
+              <NavLink
+                className="text-decoration-none text-white px-2"
                 to={'/profile'}
               >
                 Profile
