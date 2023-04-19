@@ -9,6 +9,7 @@ import { Toaster } from 'react-hot-toast';
 import PostsPage from './pages/PostsPage';
 import SingleListPost from './components/posts/SingleListPost';
 import SinglePostPage from './pages/SinglePostPage';
+import NewPostPage from './pages/NewPostPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/posts" element={<PostsPage />} />
+        <Route path="/posts/add/" element={<NewPostPage />} />
         <Route path="/posts/:postUid" element={<SinglePostPage />} />
       </Routes>
     </div>
