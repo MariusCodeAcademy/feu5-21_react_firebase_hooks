@@ -13,7 +13,7 @@ function PostsPage() {
   // const q = query(postCollRef, orderBy('author', 'desc'));
   const q =
     filerVal === 'all'
-      ? query(postCollRef)
+      ? query(postCollRef, orderBy('author', 'desc'))
       : query(postCollRef, where('tags', 'array-contains', filerVal));
 
   const [value, loading, error] = useCollection(q);
