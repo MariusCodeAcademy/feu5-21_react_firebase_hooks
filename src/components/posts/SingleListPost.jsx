@@ -1,10 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthCtx } from '../../store/AuthProvider';
+import { deleteDoc, doc } from '@firebase/firestore';
+import { db } from '../../firebase/firebase';
+import { toast } from 'react-hot-toast';
 
 function SingleListPost({ item }) {
   const { user } = useAuthCtx();
   // console.log('item ===', item);
+
+  async function deletePost() {
+    deleteDoc(doc(db, 'hookPosts', item.uid)).then(() => {
+      toast.success('post deleted');
+    });
+  }
+
   return (
     <div className="card">
       <img src={item?.image} className="card-img-top w-50" alt="..." />
@@ -23,7 +33,9 @@ function SingleListPost({ item }) {
         </div>
         {/* rodyti delete mygtuka tik autoriui */}
         {user.uid === item.userUid && (
-          <button className="btn btn-danger">Delete</button>
+          <button onClick={deletePost} className="btn btn-danger">
+            Delete
+          </button>
         )}
         <Link to={`/posts/${item.uid}`} className="btn btn-primary">
           Read more...

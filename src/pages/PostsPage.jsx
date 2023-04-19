@@ -1,4 +1,11 @@
-import { collection, orderBy, query, where } from 'firebase/firestore';
+import {
+  collection,
+  deleteDoc,
+  doc,
+  orderBy,
+  query,
+  where,
+} from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { db } from '../firebase/firebase';
@@ -20,7 +27,6 @@ function PostsPage() {
   // console.log('value ===', value);
   const docsWithUid =
     value && value.docs.map((doc) => ({ uid: doc.id, ...doc.data() }));
-  useEffect(() => {}, []);
 
   console.log('error ===', error);
   return (
