@@ -7,7 +7,7 @@ import Loader from '../components/ui/Loader/Loader';
 
 function PostsPage() {
   // parsiusti postus
-  const postCollRef = collection(db, 'posts');
+  const postCollRef = collection(db, 'hookPosts');
   const q = query(postCollRef, orderBy('author', 'desc'));
   const [value, loading, error] = useCollection(q);
   // console.log('value ===', value);

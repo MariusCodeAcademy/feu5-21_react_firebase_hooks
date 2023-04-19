@@ -1,28 +1,31 @@
 import { useFormik } from 'formik';
 import { useState } from 'react';
+import { useAuthCtx } from '../../store/AuthProvider';
 
-function NewPostForm() {
-  const [tags, setTags] = useState([]);
+function NewPostForm({ onNewPost }) {
+  const { user } = useAuthCtx();
 
   const formik = useFormik({
     initialValues: {
-      title: '',
-      author: '',
+      title: 'Post 1',
+      author: 'James Bond',
       date: '',
-      content: '',
-      image: '',
+      content: 'This is body of post1',
+      image: 'https://picsum.photos/id/1/400/300',
       tagInput: '',
     },
     onSubmit: (values) => {
       const newPost = {
         title: values.title,
         author: values.author,
-        date: values.date,
+        date: Number(new Date(values.date)),
         content: values.content,
         image: values.image,
-        tags: tags,
+        tags: values.tagInput.split(',').map((t) => t.trim()),
+        userUid: user.uid,
       };
-
+      console.log('newPost ===', newPost);
+      onNewPost(newPost);
       // Code to submit the new post data to the server here
     },
   });
@@ -107,13 +110,6 @@ function NewPostForm() {
             onChange={formik.handleChange}
             value={formik.values.tagInput}
           />
-        </div>
-        <div className="d-flex flex-wrap">
-          {tags.map((tag) => (
-            <span key={tag} className="badge badge-primary mr-1 mb-1">
-              {tag}
-            </span>
-          ))}
         </div>
       </div>
       <button type="submit" className="btn btn-primary">
