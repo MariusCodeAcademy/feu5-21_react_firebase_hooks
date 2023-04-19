@@ -1,5 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuthCtx } from '../store/AuthProvider';
+import { updateProfile } from 'firebase/auth';
+import { auth } from '../firebase/firebase';
+import { toast } from 'react-hot-toast';
 
 function ProfilePage() {
   // kas yra siuo metu prisijunges
@@ -7,10 +10,29 @@ function ProfilePage() {
   console.log('user ===', user);
   // paimti email user.email is kontext
   // paimti displayName user.displayName is kontext
+  const userName = user?.displayName;
+  const [newName, setNewName] = useState(user?.displayName || '');
+  // atnaujinti varda po prisiloginimo
+  useEffect(() => {
+    console.log('useEffect newName ===');
+    setNewName(userName);
+  }, [userName]);
 
-  const [newName, setNewName] = useState(user?.displayName);
-
-  function updateUserProfile() {}
+  function updateUserProfile() {
+    updateProfile(auth.currentUser, {
+      displayName: newName,
+    })
+      .then(() => {
+        // Profile updated!
+        toast.success('Updated');
+        // ...
+      })
+      .catch((error) => {
+        // An error occurred
+        toast.error('Failed');
+        // ...
+      });
+  }
 
   return (
     <div className="container">
