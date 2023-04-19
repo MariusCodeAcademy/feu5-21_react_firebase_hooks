@@ -10,7 +10,11 @@ function Logout() {
     signOut();
   }
 
-  return !isLoggedIn ? null : <button onClick={logoutFire}>Logout</button>;
+  return !isLoggedIn ? null : (
+    <button className="btn btn-outline-info" onClick={logoutFire}>
+      Logout
+    </button>
+  );
 }
 
 export default Logout;

@@ -7,6 +7,8 @@ import ProfilePage from './pages/ProfilePage';
 import Header from './components/layout/Header';
 import { Toaster } from 'react-hot-toast';
 import PostsPage from './pages/PostsPage';
+import SingleListPost from './components/posts/SingleListPost';
+import SinglePostPage from './pages/SinglePostPage';
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/posts" element={<PostsPage />} />
+        <Route path="/posts/:postUid" element={<SinglePostPage />} />
       </Routes>
     </div>
   );
