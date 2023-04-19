@@ -9,25 +9,34 @@ function Header() {
   return (
     <header>
       <div className="container">
-        <Link to={'/'} className="logo">
+        <Link to={'/'} className="logo text-decoration-none text-white">
           Logo
         </Link>
         <nav>
-          <NavLink className="navItem" to={'/'}>
+          <NavLink className="text-decoration-none text-white px-2" to={'/'}>
             Home page
           </NavLink>
           {isLoggedIn && (
             <>
-              <NavLink className="navItem" to={'/profile'}>
+              <NavLink
+                className="text-decoration-none text-white px-2"
+                to={'/profile'}
+              >
                 Profile
               </NavLink>
-              <NavLink className="navItem" to={'/login'}>
+              <NavLink
+                className="text-decoration-none text-white px-2"
+                to={'/login'}
+              >
                 <Logout />
               </NavLink>
             </>
           )}
           {!isLoggedIn && (
-            <NavLink className="navItem" to={'/login'}>
+            <NavLink
+              className="text-decoration-none text-white px-2"
+              to={'/login'}
+            >
               Login
             </NavLink>
           )}

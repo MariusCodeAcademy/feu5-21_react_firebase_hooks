@@ -16,8 +16,11 @@ function LoginForm({ onLogin }) {
   return (
     <form onSubmit={formik.handleSubmit}>
       <div>
-        <label htmlFor="email">Email</label>
+        <label className="form-label" htmlFor="email">
+          Email
+        </label>
         <input
+          className="form-control"
           id="email"
           type="text"
           name="email"
@@ -30,8 +33,11 @@ function LoginForm({ onLogin }) {
         ) : null}
       </div>
       <div>
-        <label htmlFor="password">Password</label>
+        <label className="form-label" htmlFor="password">
+          Password
+        </label>
         <input
+          className="form-control"
           id="password"
           type="password"
           name="password"
@@ -43,7 +49,9 @@ function LoginForm({ onLogin }) {
           <div>{formik.errors.password}</div>
         ) : null}
       </div>
-      <button type="submit">Submit</button>
+      <button className="btn btn-outline-dark mt-4" type="submit">
+        Submit
+      </button>
     </form>
   );
 }

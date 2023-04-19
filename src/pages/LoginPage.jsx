@@ -47,7 +47,7 @@ function LoginPage() {
   console.log('user ===', user);
   return (
     <div className="container">
-      <h1>LoginPage</h1>
+      <h1 className="display-4">LoginPage</h1>
       <p>This is LoginPage</p>
       {error && <h3>Ivyko klaida</h3>}
       {loading && <h2>Loading...</h2>}
