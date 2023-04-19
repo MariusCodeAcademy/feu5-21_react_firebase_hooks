@@ -4,8 +4,8 @@ import { useFormik } from 'formik';
 function LoginForm({ onLogin }) {
   const formik = useFormik({
     initialValues: {
-      email: 'james@bond.com',
-      password: '123456',
+      email: '',
+      password: '',
     },
     onSubmit: (values) => {
       console.log('Form values:', values);
