@@ -18,6 +18,9 @@ function Header() {
           </NavLink>
           {isLoggedIn && (
             <>
+              <NavLink className="navItem" to={'/posts'}>
+                Posts
+              </NavLink>
               <NavLink className="navItem" to={'/profile'}>
                 Profile
               </NavLink>

@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import Header from './components/layout/Header';
 import { Toaster } from 'react-hot-toast';
+import PostsPage from './pages/PostsPage';
 function App() {
   return (
     <div className="">
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/posts" element={<PostsPage />} />
       </Routes>
     </div>
   );
