@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function SingleListPost({ item }) {
-  console.log('item ===', item);
+  // console.log('item ===', item);
   return (
     <div className="card">
       {/* <img src="..." className="card-img-top" alt="..."/> */}

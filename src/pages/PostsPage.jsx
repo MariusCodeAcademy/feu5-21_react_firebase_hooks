@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { db } from '../firebase/firebase';
 import SingleListPost from '../components/posts/SingleListPost';
+import Loader from '../components/ui/Loader/Loader';
 
 function PostsPage() {
   // parsiusti postus
@@ -14,11 +15,13 @@ function PostsPage() {
     value && value.docs.map((doc) => ({ uid: doc.id, ...doc.data() }));
   useEffect(() => {}, []);
   // console.log('docsWithUid ===', docsWithUid);
+
+  console.log('error ===', error);
   return (
     <div className="container">
       <h1>Post page</h1>
       <p>This is ProfilePage</p>
-      {loading && <h2>Loading...</h2>}
+      <Loader show={loading} />
       <ul className="list-group">
         {value &&
           docsWithUid.map((pObj) => (
