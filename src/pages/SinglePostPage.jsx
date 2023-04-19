@@ -2,7 +2,7 @@ import { doc } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase/firebase';
 import { useDocument } from 'react-firebase-hooks/firestore';
-import Loader from '../components/ui/Loader/Loader';
+import Loader from '../components/ui/loader/Loader';
 import SinglePost from '../components/posts/SinglePost';
 
 function SinglePostPage() {

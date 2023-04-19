@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { db } from '../firebase/firebase';
 import SingleListPost from '../components/posts/SingleListPost';
-import Loader from '../components/ui/Loader/Loader';
+import Loader from '../components/ui/loader/Loader';
 
 function PostsPage() {
   const [filerVal, setFilerVal] = useState('all');
