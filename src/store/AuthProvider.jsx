@@ -18,6 +18,7 @@ function AuthProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [user, userLoading, userError] = useAuthState(auth);
   const isLoggedIn = !!user;
+  console.log('user ===', user);
   console.log('isLoggedIn ===', isLoggedIn);
   // function login(newUser) {
   //   setUser(newUser);
