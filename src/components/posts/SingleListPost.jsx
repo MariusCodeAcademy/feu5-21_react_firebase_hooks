@@ -9,7 +9,7 @@ function SingleListPost({ item }) {
   const { user } = useAuthCtx();
   // console.log('item ===', item);
 
-  async function deletePost() {
+  function deletePost() {
     deleteDoc(doc(db, 'hookPosts', item.uid)).then(() => {
       toast.success('post deleted');
     });
